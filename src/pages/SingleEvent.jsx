@@ -348,7 +348,6 @@ const SingleEvent = () => {
                 style={{
                   backgroundColor: "#BBC1C8",
                   borderRadius: "10px",
-                  padding: "3px 5px",
                   color: "black", //"#355070",
                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                   cursor: "pointer",

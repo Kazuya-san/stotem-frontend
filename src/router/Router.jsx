@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Home from "../pages/Home";
@@ -14,7 +14,7 @@ import MyProfile from "../pages/MyProfile";
 import MyEvents from "../pages/MyEvents";
 import CreatedEvents from "../pages/CreatedEvents";
 import EditEvent from "../pages/EditEvent";
-import AttendeesTable from "../pages/AttendeesTable";
+// import AttendeesTable from "../pages/AttendeesTable";
 import AdminAllUsers from "../pages/AdminAllUsers";
 import Notfound from "../pages/Notfound";
 
@@ -35,7 +35,7 @@ const Wrapper = ({ children }) => {
 // const MyEventsComponent = lazy(() => import("../pages/MyEvents"));
 // const CreatedEventsComponent = lazy(() => import("../pages/CreatedEvents"));
 // const EditEventComponent = lazy(() => import("../pages/EditEvent"));
-// const AttendeesTableComponent = lazy(() => import("../pages/AttendeesTable"));
+const AttendeesTableComponent = lazy(() => import("../pages/AttendeesTable"));
 // const AdminAllUsersComponent = lazy(() => import("../pages/AdminAllUsers"));
 // const NotfoundComponent = lazy(() => import("../pages/Notfound"));
 
@@ -54,46 +54,49 @@ const Router = () => {
     <BrowserRouter>
       <Wrapper>
         <Navbar />
-        {/* <Suspense fallback={<FallBack />}> */}
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+        <Suspense fallback={<FallBack />}>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<Home />} />
-          </Route>
-          <Route element={<ProtectedRoute />}>
-            <Route path="/create-event" element={<CreateEvent />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/" element={<Home />} />
+            </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/create-event" element={<CreateEvent />} />
+            </Route>
 
-          <Route path="/event/:id" element={<SingleEvent />} />
+            <Route path="/event/:id" element={<SingleEvent />} />
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/attendees/:id" element={<AttendeesTable />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route
+                path="/attendees/:id"
+                element={<AttendeesTableComponent />}
+              />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/my-profile" element={<MyProfile />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/my-profile" element={<MyProfile />} />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/all-users" element={<AdminAllUsers />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/all-users" element={<AdminAllUsers />} />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="my-events" element={<MyEvents />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="my-events" element={<MyEvents />} />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="my-createdevents" element={<CreatedEvents />} />
-          </Route>
+            <Route element={<ProtectedRoute />}>
+              <Route path="my-createdevents" element={<CreatedEvents />} />
+            </Route>
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="edit-event/:id" element={<EditEvent />} />
-          </Route>
-          <Route path="*" element={<Notfound />} />
-        </Routes>
-        {/* </Suspense> */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="edit-event/:id" element={<EditEvent />} />
+            </Route>
+            <Route path="*" element={<Notfound />} />
+          </Routes>
+        </Suspense>
         <Footer />
       </Wrapper>
     </BrowserRouter>

@@ -161,7 +161,6 @@ const EventCard = ({ item, upcomming }) => {
                 style={{
                   backgroundColor: "#BBC1C8",
                   borderRadius: "5px",
-                  padding: "3px 5px",
                   color: "#355070",
                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                   cursor: "pointer",

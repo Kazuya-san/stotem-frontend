@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserProfile, reset, deleteAccount } from "../redux/authSlice";
 import Loader from "../components/Loader";
-import shot from "../assets/surf.jpg";
+import shot from "../assets/shooting-photo.jpg";
 import { useNavigate } from "react-router-dom";
 
 import UpdateProfile from "../components/UpdateProfile";

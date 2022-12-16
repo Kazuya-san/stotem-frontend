@@ -264,6 +264,7 @@ const Register = () => {
             error={errors.program}
             name="program"
             options={[
+              "select",
               "B.Tech",
               "BE",
               "M.Tech",
