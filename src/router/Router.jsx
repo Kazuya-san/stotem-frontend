@@ -39,6 +39,8 @@ const Wrapper = ({ children }) => {
 // const AdminAllUsersComponent = lazy(() => import("../pages/AdminAllUsers"));
 // const NotfoundComponent = lazy(() => import("../pages/Notfound"));
 
+//log out user after 12 hours
+
 const FallBack = () => {
   return (
     <div className="h-[78.8vh] flex justify-center items-cente">

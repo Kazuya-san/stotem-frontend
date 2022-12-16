@@ -41,7 +41,7 @@ const MyEvents = () => {
 
   return (
     <div
-      className="w-full flex items-center justify-center"
+      className="w-full flex items-start justify-center"
       style={{
         background:
           "linear-gradient(180deg, #FCEBE1 0%, #F3E5F2 35%, #FFCAD0 100%)",
