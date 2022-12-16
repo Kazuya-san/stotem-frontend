@@ -436,8 +436,8 @@ const EditEvent = () => {
           )}
         </div>
 
-        <div className="w-5/6 md:w-2/6 mt-6 flex flex-col items-center justify-center ml-10">
-          {imageLoading && (
+        <div className="w-5/6 md:w-2/6 mt-6 flex flex-col items-center justify-center md:ml-10">
+          {image.length > 0 && imageLoading && (
             <div className="flex items-center justify-center h-full">
               <div className="flex justify-center items-center h-full">
                 <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
