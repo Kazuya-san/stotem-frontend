@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AxiosInstance } from "../utils/axios";
 import image from "../assets/lunch.jpg";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -21,6 +21,7 @@ const SingleEvent = () => {
   const [loading, setLoading] = useState(true);
   const [openModal, setOpenModal] = useState(false);
   const [likeLoading, setLikeLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const token = localStorage.getItem("userToken");
   const user = token ? jwtDecode(token) : null;
@@ -48,9 +49,12 @@ const SingleEvent = () => {
           } else setLiked(false);
         }
         setLoading(false);
+        setError("");
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
+        setError("Event not found/deleted or Something went wrong");
       });
   }, [id, bought]);
 
@@ -106,6 +110,28 @@ const SingleEvent = () => {
     return (
       <div className="h-[78.8vh] flex justify-center items-cente">
         <Loader />
+      </div>
+    );
+  }
+
+  if (error.length > 0) {
+    return (
+      <div
+        style={{
+          height: "78.7vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <h1 className="text-4xl font-bold text-[#3A8891] mb-4 mt-4">{error}</h1>
+
+        <Link to="/">
+          <button className="bg-[#3A8891] text-white px-4 py-2 rounded-md mt-4">
+            Go Back
+          </button>
+        </Link>
       </div>
     );
   }

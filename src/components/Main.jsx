@@ -108,11 +108,17 @@ const Main = ({ data, myLikedEvents, loading, likedLoading }) => {
                 <div className="text-3xl font-[900] text-[#355070] uppercase italic mb-4">
                   Events
                 </div>
-                <div className="containerM grid overflow-y-auto max-h-[1080px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                  {filteredEvents.map((item, i) => (
-                    <EventCard key={i} item={item} />
-                  ))}
-                </div>
+                {filteredEvents.length > 0 ? (
+                  <div className="containerM grid overflow-y-auto max-h-[1080px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {filteredEvents.map((item, i) => (
+                      <EventCard key={i} item={item} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="mt-2">
+                    <span className="text-2xl">No events found</span>
+                  </div>
+                )}
               </div>
             )}
           </div>
