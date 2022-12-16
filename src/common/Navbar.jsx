@@ -149,6 +149,7 @@ const Navbar = () => {
                 style={({ isActive }) =>
                   isActive ? { color: "#3A8891" } : { color: "black" }
                 }
+                onClick={() => setNavbar(false)}
               >
                 <div className="md:text-[1rem] font-bold cursor-pointer">
                   Login
@@ -159,6 +160,7 @@ const Navbar = () => {
                 style={({ isActive }) =>
                   isActive ? { color: "#3A8891" } : { color: "black" }
                 }
+                onClick={() => setNavbar(false)}
               >
                 <div className="md:text-[1rem] font-bold cursor-pointer">
                   Register
