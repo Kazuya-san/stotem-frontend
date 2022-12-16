@@ -75,6 +75,7 @@ const Navbar = () => {
                   style={({ isActive }) =>
                     isActive ? { color: "#3A8891" } : { color: "black" }
                   }
+                  onClick={() => setNavbar(false)}
                 >
                   <div className="md:text-[1rem] font-bold cursor-pointer">
                     Create an Event
@@ -88,6 +89,7 @@ const Navbar = () => {
                   style={({ isActive }) =>
                     isActive ? { color: "#3A8891" } : { color: "black" }
                   }
+                  onClick={() => setNavbar(false)}
                 >
                   <div className="md:text-[1rem] font-bold cursor-pointer">
                     All Users
@@ -100,6 +102,7 @@ const Navbar = () => {
                   style={({ isActive }) =>
                     isActive ? { color: "#3A8891" } : { color: "black" }
                   }
+                  onClick={() => setNavbar(false)}
                 >
                   <div className="md:text-[1rem] font-bold cursor-pointer">
                     My Created Events
@@ -111,6 +114,7 @@ const Navbar = () => {
                 style={({ isActive }) =>
                   isActive ? { color: "#3A8891" } : { color: "black" }
                 }
+                onClick={() => setNavbar(false)}
               >
                 <div className="md:text-[1rem] font-bold cursor-pointer">
                   My Events
@@ -122,6 +126,7 @@ const Navbar = () => {
                 style={({ isActive }) =>
                   isActive ? { color: "#3A8891" } : { color: "black" }
                 }
+                onClick={() => setNavbar(false)}
               >
                 <div className="md:text-[1rem] font-bold cursor-pointer">
                   My Profile
@@ -129,7 +134,10 @@ const Navbar = () => {
               </NavLink>
               <div
                 className="md:text-[1rem] font-bold cursor-pointer"
-                onClick={() => dispatch(logout())}
+                onClick={() => {
+                  dispatch(logout());
+                  setNavbar(false);
+                }}
               >
                 Logout
               </div>
