@@ -11,7 +11,7 @@ import ProgressBar from "../components/ProgressBar";
 import { storage } from "../firebase";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
-const allowedExtensions = ["jpg", "jpeg", "png", "gif"];
+const allowedExtensions = ["jpg", "jpeg", "png", "gif", "webp", "PNG", "JPG"];
 
 const CreateEvent = () => {
   const [event, setEvent] = useState({
