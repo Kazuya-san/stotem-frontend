@@ -187,14 +187,7 @@ const Register = () => {
 
   if (loading) {
     return (
-      <div
-        style={{
-          height: "150vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div className="h-[78.8vh] flex justify-center items-cente">
         <Loader />
       </div>
     );

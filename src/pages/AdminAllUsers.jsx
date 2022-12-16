@@ -20,7 +20,10 @@ const AdminAllUsers = () => {
 
   useEffect(() => {
     dispatch(getAllUsers());
-    dispatch(reset());
+
+    if (updateSuccess) {
+      dispatch(reset());
+    }
 
     //scroll to top
   }, [updateSuccess]);
