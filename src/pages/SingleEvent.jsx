@@ -22,6 +22,7 @@ const SingleEvent = () => {
   const [openModal, setOpenModal] = useState(false);
   const [likeLoading, setLikeLoading] = useState(false);
   const [error, setError] = useState("");
+  const [buyLoad, setBuyLoad] = useState(false);
 
   const token = localStorage.getItem("userToken");
   const user = token ? jwtDecode(token) : null;
@@ -92,16 +93,20 @@ const SingleEvent = () => {
   };
 
   const handleBuy = () => {
+    setBuyLoad(true);
     AxiosInstance.post("/api/users/boughtEvents/" + id)
       .then((res) => {
         if (res.data.url) {
+          setBuyLoad(false);
           window.location.href = res.data.url;
         } else {
           alert("Bought");
+          setBuyLoad(false);
           setBought(true);
         }
       })
       .catch((err) => {
+        setBuyLoad(false);
         console.log(err);
       });
   };
@@ -347,7 +352,8 @@ const SingleEvent = () => {
                   color: "black", //"#355070",
                   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                   cursor: "pointer",
-                  width: "100px",
+                  width: "fit-content",
+                  padding: "3px 15px",
                   height: "40px",
                   display: "flex",
                   justifyContent: "center",
@@ -357,6 +363,13 @@ const SingleEvent = () => {
                 onClick={event.countInStock > 0 ? handleBuy : null}
               >
                 {event.countInStock > 0 ? "Buy Ticket" : "Sold Out"}
+                {buyLoad && (
+                  <div className="flex items-center justify-center ml-2">
+                    <div className="flex justify-center items-center h-full">
+                      <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-gray-900"></div>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div
