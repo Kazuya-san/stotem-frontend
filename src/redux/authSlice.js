@@ -40,9 +40,7 @@ export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (data, { rejectWithValue }) => {
     try {
-      console.log(data);
       const response = await AxiosInstance.post("/api/users", data);
-      console.log(response.data);
       localStorage.setItem("userToken", JSON.stringify(response.data.token));
       setAuthToken(response.data.token);
 

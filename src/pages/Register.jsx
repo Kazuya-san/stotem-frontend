@@ -116,7 +116,6 @@ const Register = () => {
         ) {
           setErrors({ ...errors, confirmPassword: "Passwords do not match" });
         } else {
-          console.log(state);
           if (state.profilePicture.name) {
             const formData = new FormData();
             formData.append("email", state.email);
@@ -150,8 +149,6 @@ const Register = () => {
                 );
 
                 setProgress(progressP);
-
-                console.log(progressP);
               },
               (error) => {
                 alert(error);
@@ -160,7 +157,6 @@ const Register = () => {
               async () => {
                 await getDownloadURL(uploadTask.snapshot.ref).then(
                   (downloadURL) => {
-                    console.log(downloadURL);
                     // setImageUrl(downloadURL);
                     formData.append("profilePicture", downloadURL);
                     setUploadLoad(false);
