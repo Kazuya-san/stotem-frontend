@@ -104,6 +104,14 @@ const AttendeesTable = () => {
               Attendees List
             </h1>
 
+            <button
+              onClick={() => exportTableToExcel("table_to_export")}
+              className="bg-[#3A8891]  text-white px-4 py-2 rounded-md mt-4 mb-2"
+            >
+              {" "}
+              Export excel{" "}
+            </button>
+
             <div className="border rounded-lg shadow-lg overflow-x-auto">
               <table
                 className="min-w-full divide-y divide-gray-00"
@@ -124,6 +132,18 @@ const AttendeesTable = () => {
                       >
                         Email
                       </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 font-bold text-left uppercase"
+                      >
+                        Gender
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-6 py-3 font-bold text-left uppercase"
+                      >
+                        Program
+                      </th>
                       <th className="px-6 py-3 font-bold text-left uppercase">
                         Interested
                       </th>
@@ -142,6 +162,12 @@ const AttendeesTable = () => {
                           {attendee.email}
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          {attendee.gender}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          {attendee.program}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                           {isInterested(attendee) ? "Yes" : "No"}
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
@@ -153,14 +179,6 @@ const AttendeesTable = () => {
                 </>
               </table>
             </div>
-
-            <button
-              onClick={() => exportTableToExcel("table_to_export")}
-              className="bg-[#3A8891] absolute top-0 text-white px-4 py-2 rounded-md mt-4 mb-2"
-            >
-              {" "}
-              Export excel{" "}
-            </button>
           </div>
         ) : (
           <h1 className="text-2xl font-bold text-center text-[#3A8891] mb-4 mt-4">
