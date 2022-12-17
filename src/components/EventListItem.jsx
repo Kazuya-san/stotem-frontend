@@ -27,11 +27,13 @@ const EventListItem = ({ item, upcomming }) => {
   const token = localStorage.getItem("userToken");
   const user = token ? jwtDecode(token) : null;
 
-  const bought = item.attendees.find((userL) => userL === user.id);
+  const bought = item.attendees.find((userL) => userL._id === user.id);
 
   useEffect(() => {
     if (user) {
       const alreadyLiked = item?.likedBy?.includes(user.id);
+
+      console.log(item, "alreadyLiked");
 
       // console.log(item, "item");
       // console.log(user);
