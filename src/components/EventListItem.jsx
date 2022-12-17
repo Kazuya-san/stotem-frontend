@@ -33,8 +33,6 @@ const EventListItem = ({ item, upcomming }) => {
     if (user) {
       const alreadyLiked = item?.likedBy?.includes(user.id);
 
-      console.log(item, "alreadyLiked");
-
       // console.log(item, "item");
       // console.log(user);
       if (alreadyLiked) {
