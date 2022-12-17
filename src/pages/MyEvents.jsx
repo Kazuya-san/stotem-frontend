@@ -107,7 +107,7 @@ const MyEvents = () => {
             pageClassName="mt-1 rounded-md border-[#3A8891] border text-center text-white h-10 flex items-center justify-center w-10 mr-1"
             pageLinkClassName="text-[#3A8891] w-full h-full flex items-center justify-center"
             activeClassName="bg-[#3A8891] text-[#fff]"
-            activeLinkClassName="text-[#fff]"
+            activeLinkClassName="text-[#fff] link"
             nextLinkClassName="w-full h-full flex items-center justify-center"
             previousLinkClassName="w-full h-full flex items-center justify-center"
             breakLinkClassName="mr-1 rounded-md mt-1 text-white bg-[#3A8891] text-[#fff] flex items-center justify-center w-10 h-10"
