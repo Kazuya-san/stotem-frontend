@@ -50,7 +50,7 @@ const EventListItem = ({ item }) => {
             className="lg:w-[350px] md:w-[270px]"
           >
             {imageLoading && image && (
-              <div className="flex items-center justify-center h-full">
+              <div className="flex items-center justify-center h-full mt-5 md:mt-0">
                 <div className="flex justify-center items-center h-full">
                   <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
                 </div>
