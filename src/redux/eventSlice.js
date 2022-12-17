@@ -4,6 +4,8 @@ import { AxiosInstance } from "../utils/axios";
 const initialState = {
   events: [],
   loading: false,
+  page: 1,
+  pages: 1,
   error: "",
   isSuccess: false,
   isError: false,
@@ -15,7 +17,7 @@ export const fetchEvents = createAsyncThunk(
   "events/fetchEvents",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await AxiosInstance.get("/api/events");
+      const response = await AxiosInstance.get("/api/events?page=" + data);
       // response.data.sort((a, b) => {
       //   return new Date(a.startdate) - new Date(b.startdate);
       // });
@@ -125,7 +127,9 @@ const eventSlice = createSlice({
     builder.addCase(fetchEvents.fulfilled, (state, action) => {
       state.loading = false;
       state.isSuccess = true;
-      state.events = action.payload;
+      state.events = action.payload.events;
+      state.page = action.payload.page;
+      state.pages = action.payload.pages;
     });
 
     builder.addCase(fetchEvents.rejected, (state, action) => {

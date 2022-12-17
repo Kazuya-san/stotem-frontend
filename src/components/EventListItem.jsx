@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import games from "../assets/games.jpg";
-import ski from "../assets/ski.jpg";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import jwtDecode from "jwt-decode";
@@ -8,7 +7,6 @@ import { NavLink } from "react-router-dom";
 import { AxiosInstance } from "../utils/axios";
 import shot from "../assets/shooting-photo.jpg";
 import Modal from "./Modal";
-import Loader from "./Loader";
 
 const EventListItem = ({ item, upcomming }) => {
   const {
@@ -86,7 +84,7 @@ const EventListItem = ({ item, upcomming }) => {
             }}
             className="lg:w-[350px] md:w-[270px]"
           >
-            {imageLoading && (
+            {imageLoading && image && (
               <div className="flex items-center justify-center h-full">
                 <div className="flex justify-center items-center h-full">
                   <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
@@ -94,7 +92,7 @@ const EventListItem = ({ item, upcomming }) => {
               </div>
             )}
             <img
-              src={image !== "sample" ? image : games}
+              src={image !== "sample" && image ? image : games}
               alt="games"
               style={{
                 display: imageLoading ? "none" : "block",
@@ -218,19 +216,10 @@ const EventListItem = ({ item, upcomming }) => {
           {item?.attendees?.slice(0, 3).map((attendee) => {
             return (
               <div
-                className="ml-[-10px] text-[0.9rem] font-bold hover:underline"
+                className="ml-[-10px] text-[0.9rem] font-bold hover:underline tooltip"
                 key={attendee._id}
-                // style={{
-                //   backgroundColor: "rgba(58, 136, 145, 0.4)",
-                //   borderRadius: "10px",
-                //   padding: "3px 5px",
-                //   color: "#355070",
-                //   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                //   cursor: "pointer",
-                //   width: "fit-content",
-                //   float: "right",
-                // }}
               >
+                <span className="tooltiptext ml-1 mt-2">{attendee.name}</span>
                 <img
                   src={
                     attendee.profilePicture &&

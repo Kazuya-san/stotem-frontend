@@ -9,16 +9,19 @@ import { AxiosInstance } from "../utils/axios";
 
 const Home = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
-  const { events, loading } = useSelector((state) => state.events);
+  const { events, loading, page, pages } = useSelector((state) => state.events);
   const [myLikedEvents, setMyLikedEvents] = useState([]);
   const [likedLoading, setLikedLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  console.log(events, loading, page, pages);
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(fetchEvents());
+    dispatch(fetchEvents(1));
     fetchLikedEvents();
   }, []);
 
@@ -46,6 +49,7 @@ const Home = () => {
   return (
     <>
       <Hero />
+
       <Main
         data={events}
         loading={loading}
@@ -53,6 +57,33 @@ const Home = () => {
         myLikedEvents={myLikedEvents?.slice(0, 4)}
         // fetchLikedEvents={fetchLikedEvents}
       />
+
+      {/* make a custom pagination here with next and previous */}
+
+      <div className="flex justify-center items-center">
+        {currentPage > 1 && (
+          <button
+            className="bg-[#F9A826] text-white font-bold py-2 px-4 rounded-full w-32"
+            onClick={() => {
+              setCurrentPage(currentPage - 1);
+              dispatch(fetchEvents(currentPage - 1));
+            }}
+          >
+            Previous
+          </button>
+        )}
+        {currentPage < pages && (
+          <button
+            className="bg-[#F9A826] text-white font-bold py-2 px-4 rounded-full w-32"
+            onClick={() => {
+              setCurrentPage(currentPage + 1);
+              dispatch(fetchEvents(currentPage + 1));
+            }}
+          >
+            Next
+          </button>
+        )}
+      </div>
     </>
   );
 };

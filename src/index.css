@@ -98,3 +98,39 @@ body{
     background-color: rgba(85, 85, 85, 0.475);
 }
 
+/* .pagination {
+  margin-bottom: 2rem;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+
+}
+
+li a {
+  border: gray 1px solid;
+  cursor: pointer;
+  width: 199px;
+}
+
+li.previous a,
+li.next a,
+li.break a {
+  border: gray 1px solid;
+
+}
+li.active a {
+  background-color: #0366d6;
+  border-color: transparent;
+  color: white;
+}
+li.disabled a {
+  color: grey;
+  border: gray 1px solid;
+
+}
+li.disable,
+li.disabled a {
+  cursor: default;
+} */

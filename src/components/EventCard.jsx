@@ -71,7 +71,7 @@ const EventCard = ({ item, upcomming }) => {
           height: upcomming ? "290px" : "350px",
         }}
       >
-        {imageLoading && (
+        {imageLoading && image && (
           <div className="flex items-center justify-center h-full">
             <div className="flex justify-center items-center h-full">
               <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
@@ -79,7 +79,7 @@ const EventCard = ({ item, upcomming }) => {
           </div>
         )}
         <img
-          src={image !== "sample" ? image : upcomming ? ski : games}
+          src={image !== "sample" && image ? image : upcomming ? ski : games}
           // src={image}
           style={{
             display: imageLoading ? "none" : "block",

@@ -148,15 +148,15 @@ const SingleEvent = () => {
             position: "relative",
           }}
         >
-          {imageLoading && (
-            <div className="flex items-center justify-center h-[350px] w-screen">
+          {imageLoading && event.image && (
+            <div className="flex items-center justify-center h-[350px] min-w-[99vw]">
               <div className="flex justify-center items-center h-full">
                 <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
               </div>
             </div>
           )}
           <img
-            src={event.image !== "sample" ? event.image : image}
+            src={event.image !== "sample" && event.image ? event.image : image}
             alt="event"
             onLoad={() => setImageLoading(false)}
             className="object-cover"
@@ -247,16 +247,6 @@ const SingleEvent = () => {
                     <div
                       key={i}
                       className="ml-[-10px] text-[0.9rem] font-bold hover:underline tooltip"
-                      // style={{
-                      //   backgroundColor: "rgba(58, 136, 145, 0.4)",
-                      //   borderRadius: "10px",
-                      //   padding: "3px 5px",
-                      //   color: "#355070",
-                      //   boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                      //   cursor: "pointer",
-                      //   width: "fit-content",
-                      //   float: "right",
-                      // }}
                     >
                       <span className="tooltiptext">{attendee.name}</span>
 

@@ -9,6 +9,8 @@ const token = localStorage.getItem("userToken")
 const initialState = {
   user: {},
   users: [],
+  page: 1,
+  pages: 1,
   isAuthenticated: token ? true : false,
   token: token ? token : null,
   loading: false,
@@ -91,8 +93,8 @@ export const getAllUsers = createAsyncThunk(
   "user/getAllUsers",
   async (data, { rejectWithValue }) => {
     try {
-      const response = await AxiosInstance.get("/api/users");
-      return response.data.users;
+      const response = await AxiosInstance.get("/api/users?page=" + data);
+      return response.data;
     } catch (error) {
       console.log(error);
       if (error.response && error.response.data.message) {
@@ -261,7 +263,9 @@ const authSlice = createSlice({
 
     builder.addCase(getAllUsers.fulfilled, (state, action) => {
       state.loading = false;
-      state.users = action.payload;
+      state.users = action.payload.users;
+      state.pages = action.payload.pages;
+      state.page = action.payload.page;
       state.isSuccess = true;
       state.isError = false;
     });

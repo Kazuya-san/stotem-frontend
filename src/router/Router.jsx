@@ -17,6 +17,7 @@ import EditEvent from "../pages/EditEvent";
 // import AttendeesTable from "../pages/AttendeesTable";
 import AdminAllUsers from "../pages/AdminAllUsers";
 import Notfound from "../pages/Notfound";
+import NewHome from "../pages/NewHome";
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -60,7 +61,7 @@ const Router = () => {
             <Route path="/register" element={<Register />} />
 
             <Route element={<ProtectedRoute />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<NewHome />} />
             </Route>
             <Route element={<ProtectedRoute />}>
               <Route path="/create-event" element={<CreateEvent />} />

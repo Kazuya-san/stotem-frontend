@@ -49,7 +49,7 @@ const EventListItem = ({ item }) => {
             }}
             className="lg:w-[350px] md:w-[270px]"
           >
-            {imageLoading && (
+            {imageLoading && image && (
               <div className="flex items-center justify-center h-full">
                 <div className="flex justify-center items-center h-full">
                   <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
@@ -57,7 +57,7 @@ const EventListItem = ({ item }) => {
               </div>
             )}
             <img
-              src={image !== "sample" ? image : games}
+              src={image !== "sample" && image ? image : games}
               alt="games"
               style={{
                 display: imageLoading ? "none" : "block",
@@ -146,8 +146,9 @@ const EventListItem = ({ item }) => {
         <div
           className="
         flex
-        flex-col
+        md:flex-col
         justify-center
+        flex-wrap
         items-center
         text-[0.9rem]
         font-bold
@@ -157,7 +158,7 @@ const EventListItem = ({ item }) => {
         "
         >
           <NavLink to={`/edit-event/${_id}`}>
-            <button className="bg-[#3A8891] text-white px-4 py-2 rounded-full mb-3 w-[130px]">
+            <button className="bg-[#3A8891] text-white px-4 py-2 rounded-full mr-2 mb-3 w-[130px]">
               Edit Event
             </button>
           </NavLink>

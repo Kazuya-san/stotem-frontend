@@ -8,9 +8,8 @@ import { useNavigate } from "react-router-dom";
 import UpdateProfile from "../components/UpdateProfile";
 
 const MyProfile = () => {
-  const { loading, user, isAuthenticated, error, isError } = useSelector(
-    (state) => state.auth
-  );
+  const { loading, user, isAuthenticated, error, isError, updateSuccess } =
+    useSelector((state) => state.auth);
 
   const [imageLoading, setImageLoading] = useState(true);
 
@@ -29,7 +28,12 @@ const MyProfile = () => {
 
   useEffect(() => {
     dispatch(getUserProfile());
-  }, []);
+
+    if (updateSuccess) {
+      setShowEdit(false);
+      dispatch(reset());
+    }
+  }, [updateSuccess]);
 
   const handleDelete = () => {
     let confirm = window.confirm(
