@@ -230,7 +230,7 @@ const AdminAllUsers = () => {
             containerClassName="flex justify-center items-center flex-wrap"
             pageClassName="mt-1 rounded-md border-[#3A8891] border text-center text-white h-10 flex items-center justify-center w-10 mr-1"
             pageLinkClassName="text-[#3A8891] w-full h-full flex items-center justify-center"
-            activeClassName="bg-[#3A8891]"
+            activeClassName="bg-[#3A8891] text-[#fff]"
             activeLinkClassName="text-[#fff]"
             nextLinkClassName="w-full h-full flex items-center justify-center"
             previousLinkClassName="w-full h-full flex items-center justify-center"
