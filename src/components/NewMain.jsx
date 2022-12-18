@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AiFillCaretDown } from "react-icons/ai";
+import { AiFillCaretDown, AiOutlineSearch } from "react-icons/ai";
 import FilterModal from "./FilterModal";
 import { AxiosInstance } from "../utils/axios";
 import MainContent from "./MainContent";
@@ -39,15 +39,20 @@ const NewMain = () => {
         }}
       >
         <div className="mb-16 pt-10 text-center">
-          <div>
-            {/* <span className="font-bold mr-4">Search for an hec event</span> */}
-            <input
-              type="text"
-              placeholder="Look for an event"
-              className="md:w-[400px] w-full h-[50px] border-2 border-none outline-none bg-[#D9D9D9] rounded-full text-[#26a6bf] text-xl font-semibold px-4"
-              onChange={handleSearch}
-              value={search}
-            />
+          <div className="flex justify-center items-center">
+            <div className="relative flex justify-start items-center">
+              <AiOutlineSearch
+                size={28}
+                className="absolute left-2 text-gray-500"
+              />
+              <input
+                type="text"
+                placeholder="Look for an event"
+                className="md:w-[400px] pl-10 w-full h-[50px] border-2 border-none outline-none bg-[#D9D9D9] rounded-full text-[#26a6bf] text-xl font-semibold px-4"
+                onChange={handleSearch}
+                value={search}
+              />
+            </div>
           </div>
           <div className="mt-6">
             <span className="text-2xl">

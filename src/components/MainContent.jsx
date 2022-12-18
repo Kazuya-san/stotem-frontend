@@ -62,8 +62,6 @@ const MainContent = ({ search }) => {
             onPageChange={(data) => {
               dispatch(fetchEvents(data.selected + 1));
             }}
-            //border of red
-            //   className="border-[#355070] border-2 rounded-full flex justify-center items-center"
             containerClassName="flex justify-center items-center flex-wrap"
             pageClassName="mt-1 rounded-md border-[#355070] border text-center text-white h-10 flex items-center justify-center w-10 mr-1"
             pageLinkClassName="text-[#355070] w-full h-full flex items-center justify-center"
