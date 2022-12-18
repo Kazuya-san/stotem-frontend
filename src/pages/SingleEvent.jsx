@@ -169,6 +169,7 @@ const SingleEvent = () => {
 
           {user && (
             <div
+              className="md:top-[290px] top-[250px]"
               style={{
                 position: "absolute",
                 backgroundColor: liked ? "rgba(229, 107, 111, 1)" : "white",
@@ -182,7 +183,6 @@ const SingleEvent = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 color: liked ? "white" : "rgba(229, 107, 111, 1)",
-                top: "290px",
                 right: "20px",
                 boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 cursor: "pointer",
