@@ -66,7 +66,7 @@ const EventListItem = ({ item }) => {
                 display: imageLoading ? "none" : "block",
               }}
               onLoad={() => setImageLoading(false)}
-              className="w-full h-[170px] object-cover rounded-l-xl"
+              className="w-full h-[170px] object-cover rounded-t-xl md:rounded-l-xl"
             />
           </div>
 
