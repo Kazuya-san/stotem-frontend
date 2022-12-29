@@ -27,8 +27,10 @@ const Navbar = () => {
     flex
     justify-between
     items-center
-    md:px-16
-    px-5
+    lg:px-28
+    px-6
+    sticky top-0 z-50
+    shadow-xl
     text-black
   "
       style={{
@@ -73,11 +75,13 @@ const Navbar = () => {
                 <NavLink
                   to="/create-event"
                   style={({ isActive }) =>
-                    isActive ? { color: "#3A8891" } : { color: "black" }
+                    isActive
+                      ? { textDecoration: "underline" }
+                      : { textDecoration: "none" }
                   }
                   onClick={() => setNavbar(false)}
                 >
-                  <div className="md:text-[1rem] font-bold cursor-pointer">
+                  <div className="md:text-[1rem] text-[#355070] font-bold cursor-pointer">
                     Create an Event
                   </div>
                 </NavLink>
@@ -87,7 +91,9 @@ const Navbar = () => {
                 <NavLink
                   to="/all-users"
                   style={({ isActive }) =>
-                    isActive ? { color: "#3A8891" } : { color: "black" }
+                    isActive
+                      ? { textDecoration: "underline" }
+                      : { textDecoration: "none" }
                   }
                   onClick={() => setNavbar(false)}
                 >
@@ -100,7 +106,9 @@ const Navbar = () => {
                 <NavLink
                   to="/my-createdevents"
                   style={({ isActive }) =>
-                    isActive ? { color: "#3A8891" } : { color: "black" }
+                    isActive
+                      ? { textDecoration: "underline" }
+                      : { textDecoration: "none" }
                   }
                   onClick={() => setNavbar(false)}
                 >
@@ -112,7 +120,9 @@ const Navbar = () => {
               <NavLink
                 to="/my-events"
                 style={({ isActive }) =>
-                  isActive ? { color: "#3A8891" } : { color: "black" }
+                  isActive
+                    ? { textDecoration: "underline" }
+                    : { textDecoration: "none" }
                 }
                 onClick={() => setNavbar(false)}
               >
@@ -124,7 +134,9 @@ const Navbar = () => {
               <NavLink
                 to="/my-profile"
                 style={({ isActive }) =>
-                  isActive ? { color: "#3A8891" } : { color: "black" }
+                  isActive
+                    ? { textDecoration: "underline" }
+                    : { textDecoration: "none" }
                 }
                 onClick={() => setNavbar(false)}
               >
@@ -147,7 +159,9 @@ const Navbar = () => {
               <NavLink
                 to="/login"
                 style={({ isActive }) =>
-                  isActive ? { color: "#3A8891" } : { color: "black" }
+                  isActive
+                    ? { textDecoration: "underline" }
+                    : { textDecoration: "none" }
                 }
                 onClick={() => setNavbar(false)}
               >
@@ -158,7 +172,9 @@ const Navbar = () => {
               <NavLink
                 to="/register"
                 style={({ isActive }) =>
-                  isActive ? { color: "#3A8891" } : { color: "black" }
+                  isActive
+                    ? { textDecoration: "underline" }
+                    : { textDecoration: "none" }
                 }
                 onClick={() => setNavbar(false)}
               >
@@ -171,17 +187,19 @@ const Navbar = () => {
         </div>
       )}
 
-      <div className="md:flex hidden space-x-10">
+      <div className="md:flex hidden space-x-10 mr-10">
         {isAuthenticated ? (
           <>
             {(isOrganizer || isAdmin) && (
               <NavLink
                 to="/create-event"
                 style={({ isActive }) =>
-                  isActive ? { color: "#3A8891" } : { color: "black" }
+                  isActive
+                    ? { textDecoration: "underline" }
+                    : { textDecoration: "none" }
                 }
               >
-                <div className="md:text-[1rem] font-bold cursor-pointer">
+                <div className="md:text-[1rem] text-[#355070] font-bold cursor-pointer">
                   Create an Event
                 </div>
               </NavLink>
@@ -189,7 +207,9 @@ const Navbar = () => {
             <NavLink
               to="my-events"
               style={({ isActive }) =>
-                isActive ? { color: "#3A8891" } : { color: "black" }
+                isActive
+                  ? { textDecoration: "underline" }
+                  : { textDecoration: "none" }
               }
             >
               <div className="md:text-[1rem] font-bold cursor-pointer">
@@ -203,11 +223,13 @@ const Navbar = () => {
                   <BsFillPersonFill size={24} className="mr-2" />
                   My Profile
                 </div>
-                <div className="hidden peer-hover:flex hover:flex absolute z-50 w-[200px] right-6 flex-col bg-white drop-shadow-lg">
+                <div className="hidden peer-hover:flex hover:flex absolute z-50 w-[200px] right-14 flex-col bg-white drop-shadow-lg">
                   <NavLink
                     to="/my-profile"
                     style={({ isActive }) =>
-                      isActive ? { color: "#3A8891" } : { color: "black" }
+                      isActive
+                        ? { textDecoration: "underline" }
+                        : { textDecoration: "none" }
                     }
                   >
                     <div className="px-5 py-3 hover:bg-gray-200">
@@ -218,7 +240,9 @@ const Navbar = () => {
                     <NavLink
                       to="/all-users"
                       style={({ isActive }) =>
-                        isActive ? { color: "#3A8891" } : { color: "black" }
+                        isActive
+                          ? { textDecoration: "underline" }
+                          : { textDecoration: "none" }
                       }
                     >
                       <div className="px-5 py-3 hover:bg-gray-200">
@@ -230,7 +254,9 @@ const Navbar = () => {
                     <NavLink
                       to="/my-createdevents"
                       style={({ isActive }) =>
-                        isActive ? { color: "#3A8891" } : { color: "black" }
+                        isActive
+                          ? { textDecoration: "underline" }
+                          : { textDecoration: "none" }
                       }
                     >
                       <div className="px-5 py-3 hover:bg-gray-200">

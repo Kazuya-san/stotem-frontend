@@ -48,12 +48,12 @@ const AdminAllUsers = () => {
           flexDirection: "column",
         }}
       >
-        <h1 className="text-4xl font-bold text-[#3A8891] mb-4 mt-4">
+        <h1 className="text-4xl font-bold text-[#355070] mb-4 mt-4">
           Not Authorized as Admin
         </h1>
 
         <Link to="/">
-          <button className="bg-[#3A8891] text-white px-4 py-2 rounded-md mt-4">
+          <button className="bg-[#355070] text-white px-4 py-2 rounded-md mt-4">
             Go Back
           </button>
         </Link>
@@ -80,11 +80,11 @@ const AdminAllUsers = () => {
       ) : (
         <>
           <div className="overflow-x-auto w-5/6">
-            <h1 className="text-4xl font-bold text-[#3A8891] mb-4 mt-4">
+            <h1 className="text-4xl font-bold text-[#355070] mb-4 mt-4">
               All Users
             </h1>
             <div className="p-1.5 w-full inline-block align-middle">
-              <h1 className="text-2xl font-bold text-center text-[#3A8891] mb-4 mt-4">
+              <h1 className="text-2xl font-bold text-center text-[#355070] mb-4 mt-4">
                 Users List
               </h1>
 
@@ -159,7 +159,7 @@ const AdminAllUsers = () => {
                                     isOrganizer: "false",
                                   })
                                 }
-                                className="bg-[#E56B6F] text-white px-4 py-2 rounded-md mt-4 w-36"
+                                className="bg-[#E56B6F] text-white px-4 py-2 rounded-full mt-4 w-36"
                               >
                                 Remove Organizer
                               </button>
@@ -170,7 +170,7 @@ const AdminAllUsers = () => {
                                     isOrganizer: "true",
                                   })
                                 }
-                                className="bg-[#3A8891] text-white px-4 py-2 rounded-md mt-4 w-36"
+                                className="bg-[#355070] text-white px-4 py-2 rounded-full mt-4 w-36"
                               >
                                 Make Organizer
                               </button>
@@ -182,7 +182,7 @@ const AdminAllUsers = () => {
                                 onClick={() =>
                                   handleUpdate(user._id, { isAdmin: "false" })
                                 }
-                                className="bg-[#E56B6F] text-white px-4 py-2 rounded-md mt-4 w-36"
+                                className="bg-[#E56B6F] text-white px-4 py-2 rounded-full mt-4 w-36"
                               >
                                 Remove Admin
                               </button>
@@ -191,7 +191,7 @@ const AdminAllUsers = () => {
                                 onClick={() =>
                                   handleUpdate(user._id, { isAdmin: "true" })
                                 }
-                                className="bg-[#3A8891] text-white px-4 py-2 rounded-md mt-4 w-36"
+                                className="bg-[#355070] text-white px-4 py-2 rounded-full mt-4 w-36"
                               >
                                 Make Admin
                               </button>
@@ -203,7 +203,7 @@ const AdminAllUsers = () => {
                   </table>
                 </div>
               ) : (
-                <h1 className="text-2xl font-bold text-center text-[#3A8891] mb-4 mt-4">
+                <h1 className="text-2xl font-bold text-center text-[#355070] mb-4 mt-4">
                   No Users Yet
                 </h1>
               )}
@@ -226,17 +226,17 @@ const AdminAllUsers = () => {
               dispatch(getAllUsers(data.selected + 1));
             }}
             //border of red
-            //   className="border-[#3A8891] border-2 rounded-full flex justify-center items-center"
+            //   className="border-[#355070] border-2 rounded-full flex justify-center items-center"
             containerClassName="flex justify-center items-center flex-wrap"
-            pageClassName="mt-1 rounded-md border-[#3A8891] border text-center text-white h-10 flex items-center justify-center w-10 mr-1"
-            pageLinkClassName="text-[#3A8891] w-full h-full flex items-center justify-center"
-            activeClassName="bg-[#3A8891] text-[#fff]"
+            pageClassName="mt-1 rounded-md border-[#355070] border text-center text-white h-10 flex items-center justify-center w-10 mr-1"
+            pageLinkClassName="text-[#355070] w-full h-full flex items-center justify-center"
+            activeClassName="bg-[#355070] text-[#fff]"
             activeLinkClassName="text-[#fff] link"
             nextLinkClassName="w-full h-full flex items-center justify-center"
             previousLinkClassName="w-full h-full flex items-center justify-center"
-            breakLinkClassName="mr-1 rounded-md mt-1 text-white bg-[#3A8891] text-[#fff] flex items-center justify-center w-10 h-10"
-            previousClassName="rounded-md mt-1 text-white bg-[#3A8891] text-[#fff] flex items-center justify-center  w-24 h-10 mr-2"
-            nextClassName="ml-1 rounded-md mt-1 text-white bg-[#3A8891] text-[#fff] flex items-center justify-center w-24 h-10 mr-2"
+            breakLinkClassName="mr-1 rounded-md mt-1 text-white bg-[#355070] text-[#fff] flex items-center justify-center w-10 h-10"
+            previousClassName="rounded-md mt-1 text-white bg-[#355070] text-[#fff] flex items-center justify-center  w-24 h-10 mr-2"
+            nextClassName="ml-1 rounded-md mt-1 text-white bg-[#355070] text-[#fff] flex items-center justify-center w-24 h-10 mr-2"
             disabledClassName="rounded-md mt-1 text-white py-2 px-4 w-24 mr-2 opacity-50 cursor-not-allowed"
           />
         </div>

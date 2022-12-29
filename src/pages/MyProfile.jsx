@@ -4,13 +4,13 @@ import { getUserProfile, reset, deleteAccount } from "../redux/authSlice";
 import Loader from "../components/Loader";
 import shot from "../assets/shooting-photo.jpg";
 import { useNavigate } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
 
 import UpdateProfile from "../components/UpdateProfile";
 
 const MyProfile = () => {
-  const { loading, user, isAuthenticated, error, isError } = useSelector(
-    (state) => state.auth
-  );
+  const { loading, user, isAuthenticated, error, isError, updateSuccess } =
+    useSelector((state) => state.auth);
 
   const [imageLoading, setImageLoading] = useState(true);
 
@@ -24,8 +24,10 @@ const MyProfile = () => {
       setTimeout(() => {
         dispatch(reset());
       }, 3000);
+    } else if (updateSuccess) {
+      dispatch(reset());
     }
-  }, [isAuthenticated, isError, navigate]);
+  }, [isAuthenticated, isError, updateSuccess, navigate]);
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -58,8 +60,15 @@ const MyProfile = () => {
       }}
     >
       <div className="flex flex-col mt-5 items-start justify-start w-full md:w-5/6">
-        <h1 className="text-4xl ml-3 font-bold mb-12 uppercase italic text-[#355070]">
-          My Account
+        <h1 className="text-4xl ml-3 font-bold mb-12 uppercase italic flex items-center text-[#355070]">
+          <span className="mr-4">My Account</span>
+          <FaEdit
+            className="cursor-pointer"
+            size={30}
+            onClick={() => {
+              setShowEdit(!showEdit);
+            }}
+          />
         </h1>
         {!showEdit && (
           <div className="flex md:flex-row w-full md:w-2/6 flex-col items-center justify-between">
@@ -82,26 +91,8 @@ const MyProfile = () => {
                 alt="profile"
                 className="w-32 h-32 object-cover rounded-full"
               />
-
-              <div className="flex flex-col items-center justify-center">
-                <button
-                  onClick={handleDelete}
-                  className="bg-red-500 text-white px-4 py-2 rounded-full mt-5 w-40"
-                >
-                  Delete Account
-                </button>
-
-                <button
-                  onClick={() => {
-                    setShowEdit(!showEdit);
-                  }}
-                  className="bg-[#3A8891] text-white px-4 py-2 rounded-full mt-5 w-40"
-                >
-                  Edit Account
-                </button>
-              </div>
             </div>
-            <div className="ml-5">
+            <div className="md:ml-24 text-center md:text-left">
               {!showEdit && (
                 <>
                   <h1
@@ -116,6 +107,16 @@ const MyProfile = () => {
                 </>
               )}
             </div>
+          </div>
+        )}
+        {!showEdit && (
+          <div className="flex flex-col w-full md:w-1/12 items-center justify-center">
+            <button
+              onClick={handleDelete}
+              className="bg-[#E56B6F] text-white px-4 py-2 rounded-full mt-5 w-40"
+            >
+              Delete Account
+            </button>
           </div>
         )}
         {showEdit && <UpdateProfile user={user} setShowEdit={setShowEdit} />}

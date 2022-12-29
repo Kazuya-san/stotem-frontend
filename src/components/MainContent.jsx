@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import EventCard from "./EventCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEvents } from "../redux/eventSlice";
@@ -8,9 +8,9 @@ import ReactPaginate from "react-paginate";
 const MainContent = ({ search }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchEvents(1));
-  }, []);
+  //   useEffect(() => {
+  //     dispatch(fetchEvents(1));
+  //   }, []);
 
   const { events, loading, pages } = useSelector((state) => state.events);
 
@@ -32,11 +32,11 @@ const MainContent = ({ search }) => {
         <Loader />
       ) : (
         <div>
-          <div className="text-3xl font-[900] text-[#355070] uppercase italic mb-4">
+          <div className="text-3xl h-[60px] font-[900] text-[#355070] uppercase italic mb-4">
             Events
           </div>
           {filteredEvents.length > 0 ? (
-            <div className="containerM grid overflow-y-auto max-h-[1080px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="container grid overflow-y-auto md:max-h-[1080px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
               {filteredEvents.map((item, i) => (
                 <EventCard key={i} item={item} />
               ))}

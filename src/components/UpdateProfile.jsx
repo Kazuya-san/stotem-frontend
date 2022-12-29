@@ -304,7 +304,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="bg-blue-500 w-32 flex justify-center items-center hover:bg-blue-600 text-white font-bold py-2 mb-3 px-4 rounded mt-4"
+            className="bg-[#355070] w-32 flex justify-center items-center hover:bg-[#5d7ea5] text-white font-bold py-2 mb-3 px-4 rounded mt-4"
           >
             Update
             {uploadLoad && (
@@ -316,7 +316,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
             )}
           </button>
           <button
-            className="bg-red-500 ml-3 w-32 flex justify-center items-center hover:bg-red-600 text-white font-bold py-2 mb-3 px-4 rounded mt-4"
+            className="bg-[#E56B6F] ml-3 w-32 flex justify-center items-center hover:bg-red-600 text-white font-bold py-2 mb-3 px-4 rounded mt-4"
             onClick={() => setShowEdit(false)}
           >
             Cancel

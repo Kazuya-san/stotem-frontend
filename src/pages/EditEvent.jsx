@@ -7,6 +7,7 @@ import { AxiosInstance } from "../utils/axios";
 import Loader from "../components/Loader";
 import { v4 as uuid } from "uuid";
 import ProgressBar from "../components/ProgressBar";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 
 // import image from "../assets/wine.jpeg";
 import { storage } from "../firebase";
@@ -37,7 +38,7 @@ const EditEvent = () => {
     price: "",
     // category: "",
     description: "",
-    club: "",
+    // club: "",
     countInStock: "",
     file: "",
   });
@@ -60,7 +61,7 @@ const EditEvent = () => {
     file: "",
     // category: "",
     description: "",
-    club: "",
+    // club: "",
     countInStock: "",
   });
 
@@ -79,7 +80,6 @@ const EditEvent = () => {
   useEffect(() => {
     AxiosInstance.get(`/api/events/${id}`)
       .then((res) => {
-        console.log(res.data);
         setFetchLoad(false);
         setEvent({
           ...res.data,
@@ -110,7 +110,7 @@ const EditEvent = () => {
         file: error,
         // category: error,
         description: error,
-        club: error,
+        // club: error,
         countInStock: error,
       });
 
@@ -131,7 +131,7 @@ const EditEvent = () => {
         file: "",
         // category: "",
         description: "",
-        club: "",
+        // club: "",
         countInStock: "",
       });
     }
@@ -166,7 +166,7 @@ const EditEvent = () => {
       event.price.length === 0 ||
       //   event.category.length === 0 ||
       event.description.length === 0 ||
-      event.club.length === 0 ||
+      // event.club.length === 0 ||
       event.countInStock.length === 0
     ) {
       setErrors({
@@ -182,7 +182,7 @@ const EditEvent = () => {
         // category: event.category.length === 0 ? "Category is required" : "",
         description:
           event.description.length === 0 ? "Description is required" : "",
-        club: event.club.length === 0 ? "Club is required" : "",
+        // club: event.club.length === 0 ? "Club is required" : "",
         countInStock:
           event.countInStock.length === 0 ? "Count in stock is required" : "",
       });
@@ -201,7 +201,7 @@ const EditEvent = () => {
         formData.append("price", event.price);
         // formData.append("category", event.category);
         formData.append("description", event.description);
-        formData.append("club", event.club);
+        // formData.append("club", event.club);
         formData.append("countInStock", event.countInStock);
         // formData.append("eventPic", event.file);
 
@@ -255,7 +255,7 @@ const EditEvent = () => {
           })
         );
 
-      console.log(event);
+      // console.log(event);
     }
   };
 
@@ -269,13 +269,17 @@ const EditEvent = () => {
 
   return (
     <div className="flex flex-col items-center justify-center mb-3">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4 mt-4">Edit Event</h1>
-
       <form
         className="flex items-center md:items-start justify-center w-full mx-10 md:flex-row flex-col"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col items-center justify-center w-5/6 md:w-2/6 mr-2">
+          <h1 className="text-4xl flex items-center justify-start w-full font-bold text-[#355070] italic mb-8 mt-8">
+            Edit Event
+          </h1>
+          <div className="flex items-start justify-start w-full my-4">
+            <h1 className="text-xl font-bold text-[#355070]">Basic Infos</h1>
+          </div>
           <InputField
             label="Title"
             type="text"
@@ -306,6 +310,9 @@ const EditEvent = () => {
             error={errors.description}
           />
 
+          <div className="flex items-start justify-start w-full my-8">
+            <h1 className="text-xl font-bold text-[#355070]">Time</h1>
+          </div>
           <div className="flex flex-col items-center justify-between w-full md:flex-row space-x-3">
             <InputField
               label="Starting Date"
@@ -357,8 +364,12 @@ const EditEvent = () => {
       name="eventTime"
     /> */}
 
+          <div className="flex items-start justify-start w-full my-8">
+            <h1 className="text-xl font-bold text-[#355070]">Location</h1>
+          </div>
+
           <InputField
-            label="Location"
+            label="Address"
             type="text"
             placeholder="Enter event location"
             name="location"
@@ -373,6 +384,11 @@ const EditEvent = () => {
       placeholder="Enter event image"
       name="eventImage"
     /> */}
+
+          <div className="flex items-center justify-start w-full text-[#355070] my-8">
+            <AiOutlinePlusCircle size={32} className="mr-1" />
+            <h1 className="text-xl font-bold text-[#355070]">Add a Ticket</h1>
+          </div>
 
           <InputField
             label="Price"
@@ -394,7 +410,7 @@ const EditEvent = () => {
         error={errors.category}
       /> */}
 
-          <InputField
+          {/* <InputField
             label="Club"
             type="text"
             placeholder="Enter event club"
@@ -402,7 +418,7 @@ const EditEvent = () => {
             value={event.club}
             onChange={handleChange}
             error={errors.club}
-          />
+          /> */}
 
           <InputField
             label="Capacity"
@@ -416,7 +432,7 @@ const EditEvent = () => {
           <div className="hidden md:block">
             <button
               type="submit"
-              className="bg-blue-500 flex justify-center items-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-[#355070] my-6 flex justify-center items-center hover:bg-[#647e9e] text-white font-bold py-2 px-4 rounded-full"
             >
               Update Event
               {uploadLoad && (
@@ -436,7 +452,7 @@ const EditEvent = () => {
           )}
         </div>
 
-        <div className="w-5/6 md:w-2/6 mt-6 flex flex-col items-center justify-center md:ml-10">
+        <div className="w-5/6 md:w-2/6 mt-6 md:mt-28 flex flex-col items-center justify-center md:ml-10">
           {image.length > 0 && imageLoading && (
             <div className="flex items-center justify-center h-full">
               <div className="flex justify-center items-center h-full">
@@ -484,7 +500,7 @@ const EditEvent = () => {
           <div className="block md:hidden mt-2">
             <button
               type="submit"
-              className="bg-blue-500 flex justify-center items-center hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-[#355070] flex justify-center items-center hover:bg-[#647e9e] text-white font-bold py-2 px-4 rounded-full"
             >
               Update Event
               {uploadLoad && (

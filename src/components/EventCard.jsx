@@ -64,11 +64,12 @@ const EventCard = ({ item, upcomming }) => {
   return (
     <>
       <div
-        className={`flex flex-col justify-left rounded-xl shadow-md hover:shadow-xl mr-2 transition duration-300 ease-in-out cursor-pointer`}
+        className={`flex flex-col justify-left rounded-xl shadow-md ${
+          !upcomming ? "md:min-h-[350px]" : "md:min-h-[240px] "
+        } hover:shadow-xl mr-2 transition duration-300 ease-in-out cursor-pointer`}
         style={{
           backgroundColor: "rgba(255, 255, 255, 0.5)",
           position: "relative",
-          height: upcomming ? "290px" : "350px",
         }}
       >
         {imageLoading && image && (
@@ -86,7 +87,7 @@ const EventCard = ({ item, upcomming }) => {
           }}
           onLoad={() => setImageLoading(false)}
           alt="games"
-          className="w-full h-[150px] object-cover rounded-t-lg"
+          className="w-full h-[120px] md:h-[150px] object-cover rounded-t-xl"
         />
 
         <button
@@ -103,11 +104,11 @@ const EventCard = ({ item, upcomming }) => {
             justifyContent: "center",
             alignItems: "center",
             color: liked ? "white" : "rgba(229, 107, 111, 1)",
-            top: "120px",
             right: "2px",
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             cursor: "pointer",
           }}
+          className="top-[100px] md:top-[120px]"
           onClick={likeLoading ? null : handleLike}
           disabled={likeLoading}
         >
@@ -117,20 +118,24 @@ const EventCard = ({ item, upcomming }) => {
             <AiOutlineHeart size={28} />
           )}
         </button>
-
-        <div className="m-2 flex flex-col justify-between h-full">
-          <div>
-            <NavLink to={`/event/${_id}`}>
+        <NavLink
+          to={`/event/${_id}`}
+          className="m-2 flex flex-col justify-between h-full"
+        >
+          <div className="flex flex-col justify-between h-full">
+            <div>
+              {!upcomming && (
+                <div
+                  className="text-[0.9rem] font-semibold]"
+                  style={{
+                    color: "rgba(53, 80, 112, 0.81)",
+                  }}
+                >
+                  {creatorName}
+                </div>
+              )}
               <div
-                className="text-[0.9rem] font-semibold]"
-                style={{
-                  color: "rgba(53, 80, 112, 0.81)",
-                }}
-              >
-                {creatorName}
-              </div>
-              <div
-                className="text-[1.2rem] font-[800] text-[#355070] mt-2"
+                className="text-[1.2rem] font-[800] text-[#355070] mt-2 uppercase"
                 style={{
                   letterSpacing: "-0.1rem",
                   lineHeight: "1.3rem",
@@ -138,42 +143,62 @@ const EventCard = ({ item, upcomming }) => {
               >
                 {title}
               </div>
-            </NavLink>
-          </div>
-          <div>
-            {startdate && (
-              <div className="text-[0.9rem] font-light text-[#355070]">
-                {new Date(startdate).toUTCString().slice(0, 16)}, {starthour}
-              </div>
-            )}
-            <div className="font-lighter text-[0.9rem] ml-[-5px] text-[#355070] flex justify-between items-center">
-              <div>
-                <HiLocationMarker className="inline-block" size={28} />
-                {location.length > 25
-                  ? location.slice(0, 25) + "..."
-                  : location}
-              </div>
             </div>
+            <div>
+              {startdate && !upcomming && (
+                <div className="text-[0.9rem] font-light text-[#355070]">
+                  {new Date(startdate).toUTCString().slice(0, 16)}, {starthour}
+                </div>
+              )}
+              {!upcomming && (
+                <div className="font-lighter text-[0.9rem] ml-[-5px] text-[#355070] flex justify-between items-center">
+                  <div>
+                    <HiLocationMarker className="inline-block" size={28} />
+                    {location.length > 25
+                      ? location.slice(0, 25) + "..."
+                      : location}
+                  </div>
+                </div>
+              )}
 
-            {!upcomming && (
-              <div
-                className="ml-2 text-[0.9rem] font-bold uppercase"
-                style={{
-                  backgroundColor: "#BBC1C8",
-                  borderRadius: "5px",
-                  color: "#355070",
-                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                  cursor: "pointer",
-                  float: "right",
-                  padding: "2px 10px",
-                }}
-                // onClick={handleBuy}
-              >
-                {price === 0 ? "Free" : price + ".00€"}
-              </div>
-            )}
+              {upcomming && (
+                <div className="font-lighter text-[0.9rem] text-[#355070] flex justify-around items-center">
+                  <div className="text-[0.9rem] font-bold text-[#355070]">
+                    {
+                      //only get day and month from startdate
+                      new Date(startdate).toUTCString().slice(0, 12)
+                    }
+                  </div>
+
+                  <div>
+                    <HiLocationMarker className="inline-block" size={28} />
+                    {location.length > 15
+                      ? location.slice(0, 15) + "..."
+                      : location}
+                  </div>
+                </div>
+              )}
+
+              {!upcomming && (
+                <div
+                  className="ml-2 text-[0.9rem] font-bold uppercase"
+                  style={{
+                    backgroundColor: "#BBC1C8",
+                    borderRadius: "5px",
+                    color: "#355070",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    cursor: "pointer",
+                    float: "right",
+                    padding: "2px 10px",
+                  }}
+                  // onClick={handleBuy}
+                >
+                  {price === 0 ? "Free" : price + ".00€"}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        </NavLink>
       </div>
     </>
   );

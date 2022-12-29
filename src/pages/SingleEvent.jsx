@@ -169,14 +169,12 @@ const SingleEvent = () => {
 
           {user && (
             <div
-              className="md:top-[290px] top-[250px]"
+              className="top-[290px] md:w-[110px] md:h-[110px] h-[70px] w-[70px]"
               style={{
                 position: "absolute",
                 backgroundColor: liked ? "rgba(229, 107, 111, 1)" : "white",
                 border: "1px solid rgba(229, 107, 111, 1)",
                 borderRadius: "50%",
-                width: "110px",
-                height: "110px",
                 padding: "5px",
                 zIndex: "1",
                 display: "flex",
@@ -190,52 +188,64 @@ const SingleEvent = () => {
               onClick={likeLoading ? null : handleLike}
             >
               {likeLoading ? (
-                <div className="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-gray-900"></div>
+                <div className="animate-spin rounded-full md:h-20 md:w-20 w-12 h-12 border-t-2 border-b-2 border-gray-900"></div>
               ) : (
-                <AiOutlineHeart size={64} />
+                <div>
+                  <div className="hidden md:block">
+                    <AiOutlineHeart size={64} />
+                  </div>
+
+                  <div className="block md:hidden">
+                    <AiOutlineHeart size={36} />
+                  </div>
+                </div>
               )}
             </div>
           )}
         </div>
         <div className="flex flex-col items-start justify-start w-5/6">
-          <h1 className="text-4xl font-[900] text-[#355070] uppercase mt-2 italic">
+          <h1 className="md:text-4xl text-2xl font-[900] text-[#355070] uppercase mt-2 italic">
             {event.title}
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full mt-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full mt-10">
             <div className="col-span-1 mx-4">
-              <h1 className="text-2xl font-[900] text-[#E56B6F]">Location</h1>
+              <h1 className="md:text-2xl text-xl font-[900] text-[#E56B6F]">
+                Location
+              </h1>
               <p className="text-gray-800 mt-5 font-bold underline">
                 {event.location}
               </p>
             </div>
 
             <div className="col-span-1 mx-4">
-              <h1 className="text-2xl font-[900] text-[#E56B6F]">Dates</h1>
+              <h1 className="md:text-2xl text-xl font-[900] text-[#E56B6F]">
+                Dates
+              </h1>
               <p className="text-gray-800 font-bold underline mt-5">
                 {new Date(event.startdate).toUTCString().slice(0, 16)}
               </p>
 
-              <p className="text-gray-800 mt-2 font-bold underline">
-                {event.starthour}
-              </p>
+              <p className="text-gray-800 mt-2">{event.starthour}</p>
 
               <p className="text-gray-800 font-bold underline mt-5">
                 {new Date(event.enddate).toUTCString().slice(0, 16)}
               </p>
 
-              <p className="text-gray-800 mt-2 font-bold underline">
-                {event.endhour}
-              </p>
+              <p className="text-gray-800 mt-2">{event.endhour}</p>
             </div>
 
             <div className="col-span-1 mx-4">
-              <h1 className="text-2xl font-[900] text-[#E56B6F]">Organizer</h1>
+              <h1 className="md:text-2xl text-xl font-[900] text-[#E56B6F]">
+                Organizer
+              </h1>
               <p className="text-gray-800 mt-5 font-bold underline">
                 {event.creatorName ? event.creatorName : event.creator}
               </p>
             </div>
             <div className="col-span-1 mx-4">
-              <h1 className="text-2xl font-[900] text-[#E56B6F]">Attendees</h1>
+              <h1 className="md:text-2xl text-xl font-[900] text-[#E56B6F]">
+                Attendees
+              </h1>
               {/* <p className="text-gray-800 mt-5">{event.attendees.length}</p> */}
               <div className="flex">
                 <div className="font-bold text-black text-[1rem] mt-4 mr-4 underline">
@@ -298,12 +308,16 @@ const SingleEvent = () => {
 
         <div className="flex flex-col md:flex-row items-start w-5/6 mt-10">
           <div className="flex-1">
-            <h1 className="text-2xl font-[900] text-[#E56B6F]">Description</h1>
+            <h1 className="md:text-2xl text-xl italic uppercase font-[900] text-[#E56B6F]">
+              Description
+            </h1>
             <p className="text-gray-800 mt-5">{event.description}</p>
           </div>
 
           <div className="md:flex-1 w-full md:ml-10">
-            <h1 className="text-2xl font-[900] text-[#E56B6F] mb-4">Ticket</h1>
+            <h1 className="md:text-2xl text-xl italic uppercase font-[900] text-[#E56B6F] mb-4">
+              Ticket
+            </h1>
 
             <div
               className="text-[0.9rem] font-bold"
@@ -322,13 +336,13 @@ const SingleEvent = () => {
               }}
             >
               <div className="md:ml-4">
-                <h1 className="md:text-xl font-[900]">Advance Tickets</h1>
+                <h1 className="md:text-xl font-[700]">Advance Tickets</h1>
 
                 <p className="text-xs">Tickets left : {event.countInStock}</p>
               </div>
 
               <div className="mr-4">
-                <h1 className="md:text-xl font-[900]">{event.price}.00€</h1>
+                <h1 className="md:text-xl font-[700]">{event.price}.00€</h1>
               </div>
             </div>
 
@@ -389,7 +403,7 @@ const SingleEvent = () => {
 
       {/* {event.attendees && event.attendees.length > 0 && (
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-[900] text-[#E56B6F] italic">Attendees</h1>
+          <h1 className="md:text-2xl text-xl font-[900] text-[#E56B6F] italic">Attendees</h1>
           <div className="flex flex-wrap items-center justify-center">
             {event.attendees.map((attendee, i) => (
               <div
@@ -404,7 +418,7 @@ const SingleEvent = () => {
       )}
       {event.likedBy && event.likedBy.length > 0 && (
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold text-gray-800">Liked By</h1>
+          <h1 className="md:text-2xl text-xl font-bold text-gray-800">Liked By</h1>
           <div className="flex flex-wrap items-center justify-center">
             {event.likedBy.map((like, i) => (
               <div

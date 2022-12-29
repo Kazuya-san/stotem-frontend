@@ -19,6 +19,7 @@ const EventListItem = ({ item, upcomming }) => {
     _id,
     image,
   } = item;
+
   const [liked, setLiked] = useState(false);
   const [likeLoading, setLikeLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
@@ -82,7 +83,7 @@ const EventListItem = ({ item, upcomming }) => {
             style={{
               position: "relative",
             }}
-            className="lg:w-[350px] md:w-[270px]"
+            className="lg:w-[300px] md:w-[270px]"
           >
             {imageLoading && image && (
               <div className="flex items-center justify-center h-full mt-5 md:mt-0">
@@ -98,7 +99,7 @@ const EventListItem = ({ item, upcomming }) => {
                 display: imageLoading ? "none" : "block",
               }}
               onLoad={() => setImageLoading(false)}
-              className="w-full h-[150px] object-cover rounded"
+              className="w-full h-[150px] object-cover rounded-l-xl"
             />
 
             {!upcomming && (
@@ -134,15 +135,15 @@ const EventListItem = ({ item, upcomming }) => {
           </div>
 
           {bought && (
-            <div className="absolute top-0 right-0 bg-[#355070] text-white font-bold px-2 py-1 rounded-bl-xl">
-              Bought
+            <div className="absolute top-0 right-0 bg-[#355070] text-white font-bold px-4 py-[5px] rounded-xl">
+              Booked
             </div>
           )}
 
           <NavLink to={`/event/${_id}`}>
             <div className="ml-2 flex flex-col justify-between h-full">
               <div
-                className="text-[1.2rem] md:text-[1.6rem] mt-1 font-[800] text-[#355070]"
+                className="text-[1.2rem] mt-2 md:text-[1.6rem] font-[800] text-[#355070] uppercase"
                 style={{
                   letterSpacing: "-0.1rem",
                   lineHeight: "1.3rem",
@@ -150,24 +151,43 @@ const EventListItem = ({ item, upcomming }) => {
               >
                 {title}
               </div>
-              <div
-                className="text-[1rem] font-bold md:mt-[-20px] lg:mt-[-10px]"
-                style={{
-                  color: "rgba(53, 80, 112, 0.81)",
-                }}
-              >
-                {creatorName}
+              <div className="flex items-center">
+                <div
+                  className="text-[1rem] font-bold"
+                  style={{
+                    color: "rgba(53, 80, 112, 0.81)",
+                  }}
+                >
+                  {creatorName}
+                </div>
+
+                <div
+                  className="ml-8 text-[0.9rem] font-bold uppercase"
+                  style={{
+                    backgroundColor: "#BBC1C8",
+                    borderRadius: "5px",
+                    color: "#355070",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    cursor: "pointer",
+                    float: "right",
+                    padding: "2px 10px",
+                  }}
+                  // onClick={handleBuy}
+                >
+                  {price === 0 ? "Free" : price + ".00€"}
+                </div>
               </div>
+
               <div className="mt-4">
                 {startdate && (
-                  <div className="text-[0.9rem] font-normal text-[#355070]">
+                  <div className="text-[0.9rem] font-semibold text-black">
                     {new Date(startdate).toUTCString().slice(0, 16)},{" "}
-                    {starthour}
+                    <span className="font-light">{starthour}</span>
                   </div>
                 )}
-                <div className="font-lighter text-[0.9rem] ml-[-5px] text-[#355070] flex justify-between items-center">
+                <div className="font-semibold text-[0.9rem] text-black flex justify-between items-center">
                   <div>
-                    <HiLocationMarker className="inline-block mb-2" size={28} />
+                    {/* <HiLocationMarker className="inline-block mb-2" size={28} /> */}
                     {location.length > 70
                       ? location.slice(0, 70) + "..."
                       : location}
