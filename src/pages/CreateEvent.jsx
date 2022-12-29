@@ -236,7 +236,7 @@ const CreateEvent = () => {
           <h1 className="text-4xl flex items-center justify-start w-full font-bold text-[#355070] italic mb-8 mt-8">
             Create Event
           </h1>
-          <div className="flex items-start justify-start w-full my-4">
+          <div className="flex items-start justify-start w-full my-4 mb-8">
             <h1 className="text-xl font-bold text-[#355070]">Basic Infos</h1>
           </div>
           <InputField

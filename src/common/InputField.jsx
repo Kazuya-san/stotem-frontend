@@ -26,7 +26,7 @@ const InputField = ({
                 value={option}
                 onChange={onChange}
                 name={name}
-                className="mr-2"
+                className="my-4 flex items-center justify-center w-full"
                 checked={value === option}
               />
               <label htmlFor={option}>{option}</label>
@@ -86,7 +86,7 @@ const InputField = ({
           onChange={onChange}
           min={type === "date" ? new Date().toISOString().split("T")[0] : null}
           name={name}
-          className="block w-full border outline-none border-gray-300 h-10 px-3 rounded-full bg-[#BFC2C8] shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="my-4 flex items-center justify-center w-full border outline-none border-gray-300 h-10 px-3 rounded-full bg-[#BFC2C8] shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         />
       ) : (
         <textarea
@@ -96,7 +96,7 @@ const InputField = ({
           onChange={onChange}
           name={name}
           rows="4"
-          className="block w-full border outline-none border-gray-300 px-3 bg-[#BFC2C8] rounded-xl shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="block w-full border p-4 outline-none border-gray-300 px-3 bg-[#BFC2C8] rounded-xl shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         />
       )}
       {
