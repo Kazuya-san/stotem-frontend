@@ -216,7 +216,9 @@ const eventSlice = createSlice({
     builder.addCase(fetchEventsByClub.fulfilled, (state, action) => {
       state.loading = false;
       state.isSuccess = true;
-      state.events = action.payload;
+      state.events = action.payload.events;
+      state.page = action.payload.page;
+      state.pages = action.payload.pages;
     });
 
     builder.addCase(fetchEventsByClub.rejected, (state, action) => {

@@ -19,6 +19,7 @@ input[type="date"], input[type="time"]
 {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
+    min-width: 100px;
     width: fit-content;
     min-height: 1.2em;
 }
