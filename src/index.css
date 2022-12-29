@@ -17,9 +17,6 @@
 
 input[type="date"], input[type="time"]
 {
-    display:flex;
-    justify-content: flex-start;
-    align-items: center;
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     min-height: 1.2em;

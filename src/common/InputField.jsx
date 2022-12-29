@@ -86,7 +86,7 @@ const InputField = ({
           onChange={onChange}
           min={type === "date" ? new Date().toISOString().split("T")[0] : null}
           name={name}
-          className="my-4 flex items-center justify-start border outline-none border-gray-300 h-10 px-3 rounded-full bg-[#BFC2C8] shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="my-4 w-full border outline-none border-gray-300 h-10 px-3 rounded-full bg-[#BFC2C8] shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         />
       ) : (
         <textarea
