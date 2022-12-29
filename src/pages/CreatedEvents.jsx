@@ -60,7 +60,7 @@ const MyEvents = () => {
             <Loader />
           </div>
         ) : (
-          <div className="w-full lg:w-10/12 mt-2 md:mx-8 mx-1">
+          <div className="w-full lg:w-10/12 mt-2 md:mx-8 mx-4">
             {createdevents.length > 0 ? (
               <>
                 <div className="text-4xl ml-2 font-bold text-[#355070] mb-16 mt-12">
