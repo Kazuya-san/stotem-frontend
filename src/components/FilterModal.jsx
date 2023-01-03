@@ -24,7 +24,7 @@ export default function FilterModal({ setOpenModal, clubs }) {
           >
             <div className="mt-3 sm:flex w-full">
               <div className="mt-2 text-center sm:mt-0 sm:text-left w-full">
-                <h3 className="text-xl font-medium leading-6">Clubs</h3>
+                <h3 className="text-xl font-medium leading-6">Assos</h3>
                 <div className="mt-2 w-full">
                   <ul className="border border-gray-200 divide-y w-full divide-gray-200 rounded-md">
                     <li
