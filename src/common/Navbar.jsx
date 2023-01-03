@@ -27,7 +27,7 @@ const Navbar = () => {
     flex
     justify-between
     items-center
-    lg:px-28
+    lg:px-[8rem]
     px-6
     sticky top-0 z-50
     shadow-xl

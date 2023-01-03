@@ -99,7 +99,7 @@ const EventListItem = ({ item, upcomming }) => {
                 display: imageLoading ? "none" : "block",
               }}
               onLoad={() => setImageLoading(false)}
-              className="w-full h-[150px] object-cover rounded-t-xl md:rounded-l-xl"
+              className="w-full h-[150px] object-cover rounded-t-xl md:rounded-t-none md:rounded-bl-xl md:rounded-tl-xl"
             />
 
             {!upcomming && (

@@ -77,12 +77,14 @@ const NewMain = () => {
             </div>
           </div>
           <div className="mt-6">
-            <span className="text-2xl font-light">
+            <span
+              className="text-2xl font-light cursor-pointer"
+              onClick={() => setShowModal(true)}
+            >
               or browse all suggested events from
               <AiFillCaretDown
                 className="inline-block text-[#355070] text-2xl cursor-pointer"
                 size={32}
-                onClick={() => setShowModal(true)}
               />
               <span className="font-bold text-[#355070] uppercase underline italic">
                 ALL

@@ -208,7 +208,7 @@ const SingleEvent = () => {
             {event.title}
           </h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full mt-10">
-            <div className="col-span-1 mx-4">
+            <div className="col-span-1 mx-1">
               <h1 className="md:text-2xl text-xl font-[900] text-[#E56B6F]">
                 Location
               </h1>
