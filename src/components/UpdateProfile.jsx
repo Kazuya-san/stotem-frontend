@@ -201,7 +201,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
         minHeight: "79vh",
       }}
     >
-      <h1 className="text-4xl font-bold text-gray-800 mb-4 mt-4">
+      <h1 className="text-4xl font-[900] italic text-[#355070] mb-4 mt-4">
         Update Profile
       </h1>
 

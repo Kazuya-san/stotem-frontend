@@ -73,7 +73,7 @@ const AttendeesTable = () => {
           flexDirection: "column",
         }}
       >
-        <h1 className="text-4xl font-bold text-[#3A8891] mb-4 mt-4">
+        <h1 className="text-4xl font-bold text-[#355070] mb-4 mt-4">
           Not Authorized as Admin or Creator
         </h1>
 
@@ -94,19 +94,19 @@ const AttendeesTable = () => {
       }}
     >
       <div className="overflow-x-auto w-5/6">
-        <h1 className="text-4xl font-bold text-[#3A8891] mb-4 mt-4">
+        <h1 className="text-4xl font-[900] italic uppercase text-[#355070] mb-16 mt-14">
           {event.title}
         </h1>
 
         {!loading && event.attendees?.length > 0 ? (
           <div className="p-1.5 w-full inline-block align-middle relative">
-            <h1 className="text-2xl font-bold text-center text-[#3A8891] mb-4 mt-4">
+            <h1 className="text-2xl font-bold text-center text-[#355070] mb-4">
               Attendees List
             </h1>
 
             <button
               onClick={() => exportTableToExcel("table_to_export")}
-              className="bg-[#3A8891]  text-white px-4 py-2 rounded-md mt-4 mb-2"
+              className="bg-[#355070]  text-white px-4 py-2 rounded-md mt-4 mb-2"
             >
               {" "}
               Export excel{" "}
@@ -181,7 +181,7 @@ const AttendeesTable = () => {
             </div>
           </div>
         ) : (
-          <h1 className="text-2xl font-bold text-center text-[#3A8891] mb-4 mt-4">
+          <h1 className="text-2xl font-bold text-center text-[#355070] mb-4 mt-4">
             No Attendees Yet
           </h1>
         )}

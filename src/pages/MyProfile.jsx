@@ -60,7 +60,7 @@ const MyProfile = () => {
       }}
     >
       <div className="flex flex-col mt-5 items-start justify-start w-full md:w-5/6">
-        <h1 className="text-4xl ml-3 font-bold mb-12 uppercase italic flex items-center text-[#355070]">
+        <h1 className="text-4xl ml-3 font-[900] mb-16 mt-14 uppercase italic flex items-center text-[#355070]">
           <span className="mr-4">My Account</span>
           <FaEdit
             className="cursor-pointer"
@@ -110,12 +110,12 @@ const MyProfile = () => {
           </div>
         )}
         {!showEdit && (
-          <div className="flex flex-col w-full md:w-1/12 items-center justify-center">
+          <div className="flex flex-col w-full md:w-1/12 items-center justify-center ml-6">
             <button
               onClick={handleDelete}
-              className="bg-[#E56B6F] text-white px-4 py-2 rounded-full mt-5 w-40"
+              className="bg-[#E56B6F] font-bold text-white px-4 py-2 rounded-full mt-5 w-40"
             >
-              Delete Account
+              delete account
             </button>
           </div>
         )}

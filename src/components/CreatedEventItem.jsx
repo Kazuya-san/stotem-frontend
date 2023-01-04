@@ -134,25 +134,25 @@ const EventListItem = ({ item }) => {
                     font-bold
                     text-[#355070]
                     m-2
-                    mt-3
+                    mt-[14px]
                     "
         >
           <NavLink to={`/edit-event/${_id}`}>
             <button className="bg-[#355070] text-white px-4 py-2 rounded-full mr-2 mb-3 w-[130px]">
-              Edit Event
+              edit event
             </button>
           </NavLink>
           <NavLink to={`/attendees/${_id}`}>
             <button className="bg-[#355070] text-white px-4 py-2 rounded-full mb-3 w-[130px]">
-              Attendees List
+              attendees list
             </button>
           </NavLink>
 
           <button
             onClick={handleDelete}
-            className="bg-[#E56B6F] flex items-center justify-center text-white px-4 py-2 rounded-full mb-3 w-[130px]"
+            className="bg-[#E56B6F] flex items-center justify-center text-white px-4 py-2 rounded-full mb-1 w-[130px]"
           >
-            Cancel Event
+            cancel event
             {deleteLoading && (
               <div className="flex items-center justify-center ml-2">
                 <div className="flex justify-center items-center h-full">
