@@ -33,7 +33,7 @@ const MainContent = ({ search }) => {
       ) : (
         <div>
           <div className="text-3xl h-[60px] font-[900] text-[#355070] uppercase italic mb-4">
-            Events
+            Next Events
           </div>
           {filteredEvents.length > 0 ? (
             <div className="container grid overflow-y-auto md:max-h-[1080px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2">
