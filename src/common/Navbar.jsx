@@ -127,7 +127,7 @@ const Navbar = () => {
                 onClick={() => setNavbar(false)}
               >
                 <div className="md:text-[1rem] font-bold cursor-pointer">
-                  My Events
+                  My Coming Events
                 </div>
               </NavLink>
 
@@ -213,7 +213,7 @@ const Navbar = () => {
               }
             >
               <div className="md:text-[1rem] font-bold cursor-pointer">
-                My Events
+                My Coming Events
               </div>
             </NavLink>
 
