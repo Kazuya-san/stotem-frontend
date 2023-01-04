@@ -63,7 +63,7 @@ const MyEvents = () => {
           <div className="w-full lg:w-10/12 mt-2 md:mx-8 mx-4">
             {createdevents.length > 0 ? (
               <>
-                <div className="text-4xl ml-2 font-bold text-[#355070] mb-16 mt-12 uppercase italic">
+                <div className="text-4xl ml-2 font-[900] text-[#355070] mb-16 mt-12 uppercase italic">
                   My Created Events
                 </div>
                 <div className="">

@@ -69,7 +69,7 @@ const MyEvents = () => {
               //   </>
               // )
             }
-            <div className="text-4xl font-bold text-[#355070] mb-16 mt-14 italic uppercase">
+            <div className="text-4xl font-[900] text-[#355070] mb-16 mt-14 italic uppercase">
               My Coming Events
             </div>
 
