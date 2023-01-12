@@ -86,6 +86,8 @@ const AttendeesTable = () => {
     );
   }
 
+  console.log(event);
+
   return (
     <div
       className="flex flex-col items-center"

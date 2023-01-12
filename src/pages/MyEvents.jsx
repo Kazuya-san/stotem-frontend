@@ -16,11 +16,13 @@ const MyEvents = () => {
   const fetchMyEvents = (page = 1) => {
     AxiosInstance.get("/api/users/getMyEvents?page=" + page)
       .then((res) => {
-        res.data.events.sort((a, b) => {
-          return new Date(a.startdate) - new Date(b.startdate);
-        });
-        setEvents(res.data.events);
-        setPages(res.data.pages);
+        if (res.data.events.length > 0) {
+          res.data.events.sort((a, b) => {
+            return new Date(a.startdate) - new Date(b.startdate);
+          });
+          setEvents(res.data.events);
+          setPages(res.data.pages);
+        }
         setLoading(false);
       })
       .catch((err) => {

@@ -28,10 +28,12 @@ const NewMain = () => {
 
     AxiosInstance.get("/api/users/getMyEvents")
       .then((res) => {
-        res.data.events.sort((a, b) => {
-          return new Date(a.startdate) - new Date(b.startdate);
-        });
-        setMyLikedEvents(res.data.events.slice(0, 4));
+        if (res.data.events.length > 0) {
+          res.data.events.sort((a, b) => {
+            return new Date(a.startdate) - new Date(b.startdate);
+          });
+          setMyLikedEvents(res.data.events.slice(0, 4));
+        }
         setLikedLoading(false);
         // console.log(res.data);
       })
