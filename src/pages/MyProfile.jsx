@@ -59,7 +59,7 @@ const MyProfile = () => {
         minHeight: "78.8vh",
       }}
     >
-      <div className="flex flex-col mt-5 items-start justify-start w-full md:w-5/6">
+      <div className="flex flex-col mt-5 items-start justify-start w-full sm:w-5/6">
         <h1 className="text-4xl ml-3 font-[900] mb-16 mt-14 uppercase italic flex items-center text-[#355070]">
           <span className="mr-4">My Account</span>
           <FaEdit
@@ -71,7 +71,7 @@ const MyProfile = () => {
           />
         </h1>
         {!showEdit && (
-          <div className="flex md:flex-row w-full md:w-2/6 flex-col items-center justify-between">
+          <div className="flex md:flex-row w-full flex-col items-center">
             <div>
               {imageLoading && (
                 <div className="flex items-center justify-center h-full">
@@ -110,7 +110,7 @@ const MyProfile = () => {
           </div>
         )}
         {!showEdit && (
-          <div className="flex flex-col w-full md:w-1/12 items-center justify-center ml-6">
+          <div className="flex flex-col w-full md:w-1/12 items-center justify-center md:ml-6">
             <button
               onClick={handleDelete}
               className="bg-[#E56B6F] font-bold text-white px-4 py-2 rounded-full mt-5 w-40"

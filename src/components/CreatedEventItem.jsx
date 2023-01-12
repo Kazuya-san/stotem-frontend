@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import games from "../assets/games.jpg";
 import { HiLocationMarker } from "react-icons/hi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteEvent, reset } from "../redux/eventSlice";
+import placeholder from "../assets/placeholder.jpeg";
 
 const EventListItem = ({ item }) => {
   const { title, location, startdate, starthour, _id, image } = item;
@@ -60,13 +60,13 @@ const EventListItem = ({ item }) => {
               </div>
             )}
             <img
-              src={image !== "sample" && image ? image : games}
-              alt="games"
+              src={image !== "sample" && image ? image : placeholder}
+              alt="placeholder"
               style={{
                 display: imageLoading ? "none" : "block",
               }}
               onLoad={() => setImageLoading(false)}
-              className="w-full h-[170px] object-cover rounded-t-xl md:rounded-t-none md:rounded-bl-xl md:rounded-tl-xl"
+              className="w-full h-[170px] object-cover object-top rounded-t-xl md:rounded-t-none md:rounded-bl-xl md:rounded-tl-xl"
             />
           </div>
 

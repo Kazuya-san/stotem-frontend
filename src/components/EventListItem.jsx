@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import games from "../assets/games.jpg";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import jwtDecode from "jwt-decode";
 import { NavLink } from "react-router-dom";
 import { AxiosInstance } from "../utils/axios";
 import shot from "../assets/shooting-photo.jpg";
+import placeholder from "../assets/placeholder.jpeg";
 import Modal from "./Modal";
 
 const EventListItem = ({ item, upcomming }) => {
@@ -93,13 +93,13 @@ const EventListItem = ({ item, upcomming }) => {
               </div>
             )}
             <img
-              src={image !== "sample" && image ? image : games}
-              alt="games"
+              src={image !== "sample" && image ? image : placeholder}
+              alt="placeholder"
               style={{
                 display: imageLoading ? "none" : "block",
               }}
               onLoad={() => setImageLoading(false)}
-              className="w-full h-[150px] object-cover rounded-t-xl md:rounded-t-none md:rounded-bl-xl md:rounded-tl-xl"
+              className="w-full h-[150px] object-cover object-top rounded-t-xl md:rounded-t-none md:rounded-bl-xl md:rounded-tl-xl"
             />
 
             {!upcomming && (

@@ -21,6 +21,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
     profilePicture: "",
     gender: user.gender,
     program: user.program,
+    from: user.from || "",
   });
 
   const [errors, setErrors] = useState({
@@ -31,6 +32,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
     profilePicture: "",
     gender: "",
     program: "",
+    from: "",
   });
 
   const [progress, setProgress] = useState(0);
@@ -53,6 +55,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
         profilePicture: error,
         gender: error,
         program: error,
+        from: error,
       });
 
       setTimeout(() => {
@@ -71,6 +74,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
         profilePicture: "",
         gender: "",
         program: "",
+        from: "",
       });
     }
   }, [isAuthenticated, isError, error, navigate, updateSuccess]);
@@ -83,7 +87,8 @@ const UpdateProfile = ({ user, setShowEdit }) => {
       state.email.length === 0 ||
       state.name.length === 0 ||
       state.gender.length === 0 ||
-      state.program.length === 0
+      state.program.length === 0 ||
+      state.from.length === 0
     ) {
       setErrors({
         ...errors,
@@ -91,6 +96,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
         name: state.name.length === 0 ? "Name is required" : "",
         gender: state.gender.length === 0 ? "Gender is required" : "",
         program: state.program.length === 0 ? "Program is required" : "",
+        from: state.from.length === 0 ? "From is required" : "",
       });
     } else {
       if (
@@ -118,6 +124,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
             // formData.append("profilePicture", state.profilePicture);
             formData.append("gender", state.gender);
             formData.append("program", state.program);
+            formData.append("from", state.from);
 
             if (
               !allowedExtensions.includes(
@@ -169,6 +176,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
                 name: state.name,
                 gender: state.gender,
                 program: state.program,
+                from: state.from,
               })
             );
 
@@ -201,7 +209,7 @@ const UpdateProfile = ({ user, setShowEdit }) => {
         minHeight: "79vh",
       }}
     >
-      <h1 className="text-4xl font-[900] italic text-[#355070] mb-4 mt-4">
+      <h1 className="text-4xl font-[900] italic uppercase text-[#355070] mb-4 mt-4">
         Update Profile
       </h1>
 
@@ -250,6 +258,17 @@ const UpdateProfile = ({ user, setShowEdit }) => {
           />
         </div>
 
+        <InputField
+          label="Where are you from"
+          type="select"
+          placeholder="Enter your Place"
+          value={state.from}
+          onChange={(e) => setState({ ...state, from: e.target.value })}
+          error={errors.from}
+          name="from"
+          options={["France", "International"]}
+        />
+
         <div className="flex flex-col items-center justify-between w-full md:flex-row space-x-3">
           <InputField
             label="Gender"
@@ -271,18 +290,15 @@ const UpdateProfile = ({ user, setShowEdit }) => {
             error={errors.program}
             name="program"
             options={[
-              "B.Tech",
-              "BE",
-              "M.Tech",
+              "select",
+              "L3",
+              "M1 ex L3",
+              "M1 AD",
+              "M1 DD",
+              "M1 IS",
+              "M2 PGE ",
+              "M2 Master Spécialisé",
               "MBA",
-              "MCA",
-              "BCA",
-              "BBA",
-              "B.Sc",
-              "BS",
-              "M.Sc",
-              "MS",
-              "PhD",
               "Other",
             ]}
           />

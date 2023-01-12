@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import games from "../assets/games.jpg";
-import ski from "../assets/ski.jpg";
+import placeholder from "../assets/placeholder.jpeg";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 import jwtDecode from "jwt-decode";
@@ -72,52 +71,54 @@ const EventCard = ({ item, upcomming }) => {
           position: "relative",
         }}
       >
-        {imageLoading && image && (
-          <div className="flex items-center justify-center h-full">
-            <div className="flex justify-center items-center h-full">
-              <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+        <div className="w-full h-[120px] md:h-[150px] object-cover rounded-t-xl">
+          {imageLoading && image && (
+            <div className="flex items-center justify-center h-full">
+              <div className="flex justify-center items-center h-full">
+                <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>
+              </div>
             </div>
-          </div>
-        )}
-        <img
-          src={image !== "sample" && image ? image : upcomming ? ski : games}
-          // src={image}
-          style={{
-            display: imageLoading ? "none" : "block",
-          }}
-          onLoad={() => setImageLoading(false)}
-          alt="games"
-          className="w-full h-[120px] md:h-[150px] object-cover rounded-t-xl"
-        />
-
-        <button
-          style={{
-            position: "absolute",
-            backgroundColor: liked ? "rgba(229, 107, 111, 1)" : "white",
-            border: "1px solid rgba(229, 107, 111, 1)",
-            borderRadius: "50%",
-            width: "50px",
-            height: "50px",
-            padding: "5px",
-            zIndex: "1",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: liked ? "white" : "rgba(229, 107, 111, 1)",
-            right: "2px",
-            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-            cursor: "pointer",
-          }}
-          className="top-[100px] md:top-[120px]"
-          onClick={likeLoading ? null : handleLike}
-          disabled={likeLoading}
-        >
-          {likeLoading ? (
-            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900"></div>
-          ) : (
-            <AiOutlineHeart size={28} />
           )}
-        </button>
+          <img
+            src={image !== "sample" && image ? image : placeholder}
+            // src={image}
+            style={{
+              display: imageLoading ? "none" : "block",
+            }}
+            onLoad={() => setImageLoading(false)}
+            alt="placeholder"
+            className="w-full h-[120px] md:h-[150px] object-cover object-top rounded-t-xl"
+          />
+
+          <button
+            style={{
+              position: "absolute",
+              backgroundColor: liked ? "rgba(229, 107, 111, 1)" : "white",
+              border: "1px solid rgba(229, 107, 111, 1)",
+              borderRadius: "50%",
+              width: "50px",
+              height: "50px",
+              padding: "5px",
+              zIndex: "1",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: liked ? "white" : "rgba(229, 107, 111, 1)",
+              right: "2px",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              cursor: "pointer",
+            }}
+            className="top-[100px] md:top-[120px]"
+            onClick={likeLoading ? null : handleLike}
+            disabled={likeLoading}
+          >
+            {likeLoading ? (
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-gray-900"></div>
+            ) : (
+              <AiOutlineHeart size={28} />
+            )}
+          </button>
+        </div>
         <NavLink
           to={`/event/${_id}`}
           className="m-2 flex flex-col justify-between h-full"

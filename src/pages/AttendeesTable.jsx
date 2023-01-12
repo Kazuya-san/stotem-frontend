@@ -145,6 +145,9 @@ const AttendeesTable = () => {
                         Program
                       </th>
                       <th className="px-6 py-3 font-bold text-left uppercase">
+                        From
+                      </th>
+                      <th className="px-6 py-3 font-bold text-left uppercase">
                         Interested
                       </th>
                       <th className="px-6 py-3 font-bold text-left uppercase">
@@ -166,6 +169,9 @@ const AttendeesTable = () => {
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                           {attendee.program}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                          {attendee.from ? attendee.from : "france"}
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                           {isInterested(attendee) ? "Yes" : "No"}

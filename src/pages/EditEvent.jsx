@@ -274,7 +274,7 @@ const EditEvent = () => {
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col items-center justify-center w-5/6 md:w-2/6 mr-2">
-          <h1 className="text-4xl flex items-center justify-start w-full font-[900] text-[#355070] italic mb-16 mt-14">
+          <h1 className="text-4xl flex items-center uppercase justify-start w-full font-[900] text-[#355070] italic mb-16 mt-14">
             Edit Event
           </h1>
           <div className="flex items-start justify-start w-full my-4 mb-8">

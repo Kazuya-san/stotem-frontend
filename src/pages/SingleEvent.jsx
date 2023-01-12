@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { AxiosInstance } from "../utils/axios";
-import image from "../assets/lunch.jpg";
 import { AiOutlineHeart } from "react-icons/ai";
 import shot from "../assets/shooting-photo.jpg";
 import jwtDecode from "jwt-decode";
 import Modal from "../components/Modal";
 import Loader from "../components/Loader";
+import placeholder from "../assets/placeholder.jpeg";
 
 const SingleEvent = () => {
   const { id } = useParams();
@@ -156,14 +156,21 @@ const SingleEvent = () => {
             </div>
           )}
           <img
-            src={event.image !== "sample" && event.image ? event.image : image}
+            src={
+              event.image !== "sample" && event.image
+                ? event.image
+                : placeholder
+            }
             alt="event"
             onLoad={() => setImageLoading(false)}
-            className="object-cover"
+            className="object-cover object-center"
             style={{
               width: "100vw",
               height: "350px",
               display: imageLoading ? "none" : "block",
+              // backgroundImage: `url(${event.image})`,
+              // backgroundSize: "contain",
+              //blur bg
             }}
           />
 

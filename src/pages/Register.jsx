@@ -22,6 +22,7 @@ const Register = () => {
     profilePicture: "",
     gender: "",
     program: "",
+    from: "",
   });
 
   const [errors, setErrors] = useState({
@@ -32,6 +33,7 @@ const Register = () => {
     profilePicture: "",
     gender: "",
     program: "",
+    from: "",
   });
 
   const [progress, setProgress] = useState(0);
@@ -57,6 +59,7 @@ const Register = () => {
         profilePicture: error,
         gender: error,
         program: error,
+        from: error,
       });
 
       setTimeout(() => {
@@ -72,6 +75,7 @@ const Register = () => {
         profilePicture: "",
         gender: "",
         program: "",
+        from: "",
       });
     }
   }, [isAuthenticated, isError, error, navigate]);
@@ -86,7 +90,8 @@ const Register = () => {
       state.name.length === 0 ||
       state.confirmPassword.length < 6 ||
       state.gender.length === 0 ||
-      state.program.length === 0
+      state.program.length === 0 ||
+      state.from.length === 0
     ) {
       setErrors({
         ...errors,
@@ -98,6 +103,7 @@ const Register = () => {
         name: state.name.length === 0 ? "Name is required" : "",
         gender: state.gender.length === 0 ? "Gender is required" : "",
         program: state.program.length === 0 ? "Program is required" : "",
+        from: state.from.length === 0 ? "From is required" : "",
         confirmPassword:
           state.confirmPassword.length < 6
             ? "Confirm Password is required and should be greater than 6 characters"
@@ -124,6 +130,7 @@ const Register = () => {
             // formData.append("profilePicture", state.profilePicture);
             formData.append("gender", state.gender);
             formData.append("program", state.program);
+            formData.append("from", state.from);
             if (
               !allowedExtensions.includes(
                 state.profilePicture.name.split(".").pop()
@@ -173,6 +180,7 @@ const Register = () => {
                 name: state.name,
                 gender: state.gender,
                 program: state.program,
+                from: state.from,
               })
             );
           }
@@ -243,6 +251,17 @@ const Register = () => {
           />
         </div>
 
+        <InputField
+          label="Where are you from"
+          type="select"
+          placeholder="Enter your Place"
+          value={state.from}
+          onChange={(e) => setState({ ...state, from: e.target.value })}
+          error={errors.from}
+          name="from"
+          options={["France", "International"]}
+        />
+
         <div className="flex flex-col items-center justify-between w-full md:flex-row space-x-3">
           <InputField
             label="Gender"
@@ -265,18 +284,14 @@ const Register = () => {
             name="program"
             options={[
               "select",
-              "B.Tech",
-              "BE",
-              "M.Tech",
+              "L3",
+              "M1 ex L3",
+              "M1 AD",
+              "M1 DD",
+              "M1 IS",
+              "M2 PGE ",
+              "M2 Master Spécialisé",
               "MBA",
-              "MCA",
-              "BCA",
-              "BBA",
-              "B.Sc",
-              "BS",
-              "M.Sc",
-              "MS",
-              "PhD",
               "Other",
             ]}
           />
