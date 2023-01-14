@@ -1,7 +1,7 @@
 import { useLayoutEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute";
-import Home from "../pages/Home";
+// import Home from "../pages/Home";
 import Loader from "../components/Loader";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
@@ -44,7 +44,7 @@ const AttendeesTableComponent = lazy(() => import("../pages/AttendeesTable"));
 
 const FallBack = () => {
   return (
-    <div className="h-[78.8vh] flex justify-center items-cente">
+    <div className="min-h-[78.8vh] flex justify-center">
       <Loader />
     </div>
   );
